@@ -1,112 +1,61 @@
 package com.github.abrarshakhi.pascalinecalculator;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-
-    private TextView tvDisplay;
-    private String currentInput = "";
-    private String operator = "";
-    private double firstNumber = Double.NaN;
+    EditText etDisplay;
+    ImageButton btnHistory, btnClear, btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
 
-        // Display
-        tvDisplay = findViewById(R.id.tvDisplay);
+        etDisplay = findViewById(R.id.etDisplay);
+        etDisplay.setShowSoftInputOnFocus(false);
 
-        // Number buttons
-        int[] numberButtons = {R.id.btnZero, R.id.btnOne, R.id.btnTwo, R.id.btnThree,
-            R.id.btnFour, R.id.btnFive, R.id.btnSix, R.id.btnSeven, R.id.btnEight, R.id.btnNine};
+        btnHistory = findViewById(R.id.btnHistory);
+        btnClear = findViewById(R.id.btnClear);
+        btnBack = findViewById(R.id.btnBack);
 
-        for (int i = 0; i < numberButtons.length; i++) {
-            final int num = i;
-            Button btn = findViewById(numberButtons[i]);
-            btn.setOnClickListener(v -> appendNumber(String.valueOf(num)));
-        }
-
-        // Decimal
-        findViewById(R.id.btnDecimal).setOnClickListener(v -> appendDecimal());
-
-        // Operators
-        findViewById(R.id.btnAdd).setOnClickListener(v -> setOperator("+"));
-        findViewById(R.id.btnSub).setOnClickListener(v -> setOperator("-"));
-        findViewById(R.id.btnMul).setOnClickListener(v -> setOperator("*"));
-        findViewById(R.id.btnDiv).setOnClickListener(v -> setOperator("/"));
-
-        // Equals
-        findViewById(R.id.btnEqual).setOnClickListener(v -> calculateResult());
-
-        // Delete
-        findViewById(R.id.btnDel).setOnClickListener(v -> deleteLast());
-
-        // Initialize display
-        tvDisplay.setText("0");
+        initializeButtons();
     }
 
-    private void appendNumber(String num) {
-        if (currentInput.equals("0")) currentInput = "";
-        currentInput += num;
-        tvDisplay.setText(currentInput);
+    private void initializeButtons() {
+        btnHistory.setOnClickListener(v -> {
+            // TODO: Implement history
+        });
+        btnClear.setOnClickListener(v -> etDisplay.setText(""));
+        btnBack.setOnClickListener(v -> deleteCharAtCursor());
     }
 
-    private void appendDecimal() {
-        if (!currentInput.contains(".")) {
-            if (currentInput.isEmpty()) currentInput = "0";
-            currentInput += ".";
-            tvDisplay.setText(currentInput);
-        }
+    private void insertTextAtCursor(String textToInsert) {
+        int start = Math.max(etDisplay.getSelectionStart(), 0);
+        int end = Math.max(etDisplay.getSelectionEnd(), 0);
+        etDisplay.getText().replace(Math.min(start, end), Math.max(start, end),
+            textToInsert, 0, textToInsert.length());
     }
 
-    private void setOperator(String op) {
-        if (!Double.isNaN(firstNumber)) {
-            calculateResult();
-        } else {
-            firstNumber = currentInput.isEmpty() ? 0 : Double.parseDouble(currentInput);
+    private void deleteCharAtCursor() {
+        int cursorPos = etDisplay.getSelectionStart();
+        if (cursorPos <= 0) {
+            return;
         }
-        operator = op;
-        currentInput = "";
-    }
-
-    private void calculateResult() {
-        if (operator.isEmpty() || currentInput.isEmpty()) return;
-
-        double secondNumber = Double.parseDouble(currentInput);
-        double result = 0;
-
-        switch (operator) {
-            case "+": result = firstNumber + secondNumber; break;
-            case "-": result = firstNumber - secondNumber; break;
-            case "*": result = firstNumber * secondNumber; break;
-            case "/":
-                if (secondNumber != 0) result = firstNumber / secondNumber;
-                else {
-                    tvDisplay.setText("Error");
-                    currentInput = "";
-                    operator = "";
-                    firstNumber = Double.NaN;
-                    return;
-                }
-                break;
-        }
-
-        tvDisplay.setText(String.valueOf(result));
-        firstNumber = result;
-        currentInput = "";
-        operator = "";
-    }
-
-    private void deleteLast() {
-        if (!currentInput.isEmpty()) {
-            currentInput = currentInput.substring(0, currentInput.length() - 1);
-            tvDisplay.setText(currentInput.isEmpty() ? "0" : currentInput);
-        }
+        StringBuilder text = new StringBuilder(etDisplay.getText());
+        text.deleteCharAt(cursorPos - 1);
+        etDisplay.setText(text);
+        etDisplay.setSelection(cursorPos - 1);
     }
 }
