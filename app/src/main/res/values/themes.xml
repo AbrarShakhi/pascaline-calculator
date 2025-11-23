@@ -15,5 +15,5 @@
         <item name="colorOnError">@color/on_error_light</item>
     </style>
 
-    <style name="Theme.PascalineCalculator" parent="Base.Theme.PascalineCalculator" />
+<!--    <style name="Theme.PascalineCalculator" parent="Base.Theme.PascalineCalculator" />-->
 </resources>
