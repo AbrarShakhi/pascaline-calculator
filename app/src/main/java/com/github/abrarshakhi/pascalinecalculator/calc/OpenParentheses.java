@@ -1,25 +1,30 @@
-package com.github.abrarshakhi.pascalinecalculator.core;
+package com.github.abrarshakhi.pascalinecalculator.calc;
 
 import androidx.annotation.NonNull;
 
 import java.util.List;
 
-public class Exponentiation implements Operator {
+public class OpenParentheses implements Operator, Parentheses {
 
     @Override
     public double evaluateAction(double left, double right) {
-        return Math.pow(left, right);
+        throw new UnsupportedOperationException("Cannot evaluate 'Parentheses'");
     }
 
     @NonNull
     @Override
     public String toString() {
-        return "^";
+        return "(";
     }
 
     @Override
     public int getPrecedence() {
-        return 3;
+        return 0;
+    }
+
+    @Override
+    public ParenthesesKind getKind() {
+        return ParenthesesKind.OPEN;
     }
 
     @Override
@@ -28,10 +33,6 @@ public class Exponentiation implements Operator {
         List<Token> postfix,
         List<Operator> operatorStack
     ) {
-        while (!operatorStack.isEmpty() &&
-            operatorStack.get(operatorStack.size() - 1).getPrecedence() >= getPrecedence()) {
-            postfix.add(operatorStack.remove(operatorStack.size() - 1));
-        }
         operatorStack.add((Operator) token);
     }
 }

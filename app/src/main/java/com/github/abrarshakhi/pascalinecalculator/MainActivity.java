@@ -1,17 +1,30 @@
 package com.github.abrarshakhi.pascalinecalculator;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.github.abrarshakhi.pascalinecalculator.database.HistoryEntity;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
-    EditText etDisplay;
-    ImageButton btnHistory, btnClear, btnBack;
+    EditText display;
+    ListView history;
+    Button historyToggle;
+    LinearLayout calcButtons;
+    CalcState state;
+    List<HistoryEntity> historyEntityList;
+    HistoryAdapter historyAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,39 +36,74 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        etDisplay = findViewById(R.id.etDisplay);
-        etDisplay.setShowSoftInputOnFocus(false);
+        display = findViewById(R.id.etDisplay);
+        display.setShowSoftInputOnFocus(false);
+        history = findViewById(R.id.lvHistory);
+        historyToggle = findViewById(R.id.btnHistoryToggle);
+        calcButtons = findViewById(R.id.llCalcButtons);
 
-        btnHistory = findViewById(R.id.btnHistory);
-        btnClear = findViewById(R.id.btnClear);
-        btnBack = findViewById(R.id.btnBack);
-
+        historyEntityList = new ArrayList<>();
+        historyAdapter = new HistoryAdapter(this, historyEntityList);
+        history.setAdapter(historyAdapter);
+        history.setAdapter(historyAdapter);
+        toggleState(CalcState.CALC_BUTTONS);
         initializeButtons();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        toggleState(CalcState.CALC_BUTTONS);
+
+    }
+
     private void initializeButtons() {
-        btnHistory.setOnClickListener(v -> {
-            // TODO: Implement history
+        historyToggle.setOnClickListener(v -> {
+            if ((this.state == CalcState.HISTORY)) {
+                toggleState(CalcState.CALC_BUTTONS);
+            } else {
+                toggleState(CalcState.HISTORY);
+            }
         });
-        btnClear.setOnClickListener(v -> etDisplay.setText(""));
-        btnBack.setOnClickListener(v -> deleteCharAtCursor());
+    }
+
+    private void toggleState(CalcState state) {
+        CharSequence seq = "Show calculator buttons";
+        switch (state) {
+            case HISTORY:
+                history.setVisibility(View.VISIBLE);
+                calcButtons.setVisibility(View.GONE);
+                break;
+            case CALC_BUTTONS:
+                history.setVisibility(View.GONE);
+                calcButtons.setVisibility(View.VISIBLE);
+                seq = "Show history";
+                break;
+        }
+        this.state = state;
+        historyAdapter.notifyDataSetChanged();
+        historyToggle.setText(seq);
     }
 
     private void insertTextAtCursor(String textToInsert) {
-        int start = Math.max(etDisplay.getSelectionStart(), 0);
-        int end = Math.max(etDisplay.getSelectionEnd(), 0);
-        etDisplay.getText().replace(Math.min(start, end), Math.max(start, end),
+        int start = Math.max(display.getSelectionStart(), 0);
+        int end = Math.max(display.getSelectionEnd(), 0);
+        display.getText().replace(Math.min(start, end), Math.max(start, end),
             textToInsert, 0, textToInsert.length());
     }
 
     private void deleteCharAtCursor() {
-        int cursorPos = etDisplay.getSelectionStart();
+        int cursorPos = display.getSelectionStart();
         if (cursorPos <= 0) {
             return;
         }
-        StringBuilder text = new StringBuilder(etDisplay.getText());
+        StringBuilder text = new StringBuilder(display.getText());
         text.deleteCharAt(cursorPos - 1);
-        etDisplay.setText(text);
-        etDisplay.setSelection(cursorPos - 1);
+        display.setText(text);
+        display.setSelection(cursorPos - 1);
+    }
+
+    enum CalcState {
+        HISTORY, CALC_BUTTONS
     }
 }

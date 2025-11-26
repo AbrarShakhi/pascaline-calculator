@@ -1,4 +1,4 @@
-package com.github.abrarshakhi.pascalinecalculator.core;
+package com.github.abrarshakhi.pascalinecalculator.calc;
 
 public interface Operator extends Token {
     public int getPrecedence();

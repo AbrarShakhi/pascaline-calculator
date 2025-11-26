@@ -3,252 +3,73 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C2D1E2"
+    android:background="#1C1D1C"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    tools:ignore="HardcodedText,NestedWeights">
+    tools:ignore="HardcodedText,NestedWeights,Autofill,LabelFor,UselessLeaf">
 
-    <!-- Display -->
     <EditText
         android:id="@+id/etDisplay"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@drawable/display_bg"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#1C1D1C"
         android:cursorVisible="false"
         android:focusable="false"
         android:gravity="bottom|end"
         android:inputType="none"
         android:padding="20dp"
         android:text="0"
-        android:textColor="#000000"
+        android:textColor="#DCDDDF"
         android:textSize="48sp" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="12dp" />\
-    
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-<!--        I will insert buttons later.-->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
+        <Button
+            android:id="@+id/btnHistoryToggle"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                style="@style/CalcButton.Gray"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="7"
-                android:textSize="30sp" />
-
-            <Button
-                style="@style/CalcButton.Gray"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="8"
-                android:textSize="30sp" />
-
-            <Button
-                style="@style/CalcButton.Gray"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="9"
-                android:textSize="30sp" />
-
-            <Button
-                style="@style/CalcButton.Orange"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="⌫"
-                android:textSize="30sp" />
-
-            <Button
-                style="@style/CalcButton.Orange"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="C"
-                android:textSize="30sp" />
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="#3E9B54"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Show history"
+            android:textColor="#1C1D1C"
+            android:textSize="15sp" />
 
         <LinearLayout
+            android:id="@+id/llCalcButtons"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <Button
-                style="@style/CalcButton.Gray"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="4"
-                android:textSize="30sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!-- Scientific buttons-->
+            </LinearLayout>
 
-            <Button
-                style="@style/CalcButton.Gray"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="5"
-                android:textSize="30sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!-- Basic buttons -->
+            </LinearLayout>
 
-            <Button
-                style="@style/CalcButton.Gray"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="6"
-                android:textSize="30sp" />
-
-            <Button
-                style="@style/CalcButton.Gray"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="×"
-                android:textSize="30sp" />
-
-            <Button
-                style="@style/CalcButton.Gray"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="÷"
-                android:textSize="30sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                style="@style/CalcButton.Gray"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="1"
-                android:textSize="30sp" />
-
-            <Button
-                style="@style/CalcButton.Gray"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="2"
-                android:textSize="30sp" />
-
-            <Button
-                style="@style/CalcButton.Gray"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="3"
-                android:textSize="30sp" />
-
-            <Button
-                style="@style/CalcButton.Gray"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="+"
-                android:textSize="30sp" />
-
-            <Button
-                style="@style/CalcButton.Gray"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="-"
-                android:textSize="30sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                style="@style/CalcButton.Gray"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="0"
-                android:textSize="30sp" />
-
-            <Button
-                style="@style/CalcButton.Gray"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="00"
-                android:textSize="30sp" />
-
-            <Button
-                style="@style/CalcButton.Gray"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="."
-                android:textSize="30sp" />
-
-            <Button
-                style="@style/CalcButton.Gray"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Ans"
-                android:textSize="30sp" />
-
-            <Button
-                style="@style/CalcButton.Gray"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="="
-                android:textSize="30sp" />
         </LinearLayout>
 
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvHistory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone" />
 
 </LinearLayout>

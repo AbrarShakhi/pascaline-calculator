@@ -1,25 +1,25 @@
-package com.github.abrarshakhi.pascalinecalculator.core;
+package com.github.abrarshakhi.pascalinecalculator.calc;
 
 import androidx.annotation.NonNull;
 
 import java.util.List;
 
-public class Subtraction implements Operator {
+public class Exponentiation implements Operator {
 
     @Override
     public double evaluateAction(double left, double right) {
-        return left - right;
+        return Math.pow(left, right);
     }
 
     @NonNull
     @Override
     public String toString() {
-        return "-";
+        return "^";
     }
 
     @Override
     public int getPrecedence() {
-        return 1;
+        return 3;
     }
 
     @Override

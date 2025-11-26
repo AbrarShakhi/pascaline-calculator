@@ -1,30 +1,25 @@
-package com.github.abrarshakhi.pascalinecalculator.core;
+package com.github.abrarshakhi.pascalinecalculator.calc;
 
 import androidx.annotation.NonNull;
 
 import java.util.List;
 
-public class OpenParentheses implements Operator, Parentheses {
+public class Subtraction implements Operator {
 
     @Override
     public double evaluateAction(double left, double right) {
-        throw new UnsupportedOperationException("Cannot evaluate 'Parentheses'");
+        return left - right;
     }
 
     @NonNull
     @Override
     public String toString() {
-        return "(";
+        return "-";
     }
 
     @Override
     public int getPrecedence() {
-        return 0;
-    }
-
-    @Override
-    public ParenthesesKind getKind() {
-        return ParenthesesKind.OPEN;
+        return 1;
     }
 
     @Override
@@ -33,6 +28,10 @@ public class OpenParentheses implements Operator, Parentheses {
         List<Token> postfix,
         List<Operator> operatorStack
     ) {
+        while (!operatorStack.isEmpty() &&
+            operatorStack.get(operatorStack.size() - 1).getPrecedence() >= getPrecedence()) {
+            postfix.add(operatorStack.remove(operatorStack.size() - 1));
+        }
         operatorStack.add((Operator) token);
     }
 }
