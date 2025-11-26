@@ -3,18 +3,21 @@ package com.github.abrarshakhi.pascalinecalculator.calc;
 import androidx.annotation.NonNull;
 
 import java.util.List;
+import java.util.Stack;
 
 public class Division implements Operator {
 
     @Override
-    public double evaluateAction(double left, double right) {
+    public double evaluateAction(Stack<Double> stack) {
+        double right = stack.pop();
+        double left = stack.pop();
         return left / right;
     }
 
     @NonNull
     @Override
     public String toString() {
-        return "/";
+        return "÷";
     }
 
     @Override

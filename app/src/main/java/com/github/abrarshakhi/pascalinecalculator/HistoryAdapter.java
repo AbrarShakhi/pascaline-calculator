@@ -1,6 +1,7 @@
 package com.github.abrarshakhi.pascalinecalculator;
 
 import android.content.Context;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 
 import com.github.abrarshakhi.pascalinecalculator.database.HistoryEntity;
 
+import java.util.Date;
 import java.util.List;
 
 public class HistoryAdapter extends ArrayAdapter<HistoryEntity> {
@@ -35,7 +37,12 @@ public class HistoryAdapter extends ArrayAdapter<HistoryEntity> {
         TextView eq = rowView.findViewById(R.id.tvEquation);
 
         HistoryEntity hist = this.list.get(position);
-        ts.setText(String.valueOf(hist.getId()));
+        long timestamp = hist.getId();
+        Date date = new Date(timestamp);
+
+        CharSequence formattedDate = DateFormat.format("yyyy-MM-dd HH:mm:ss", date);
+
+        ts.setText(formattedDate);
         eq.setText(hist.getExpression() + " = " + hist.getAns());
 
         return rowView;

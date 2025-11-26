@@ -3,11 +3,12 @@ package com.github.abrarshakhi.pascalinecalculator.calc;
 import androidx.annotation.NonNull;
 
 import java.util.List;
+import java.util.Stack;
 
 public class CloseParentheses implements Operator, Parentheses {
 
     @Override
-    public double evaluateAction(double left, double right) {
+    public double evaluateAction(Stack<Double> stack) {
         throw new UnsupportedOperationException("Cannot evaluate 'Parentheses'");
     }
 

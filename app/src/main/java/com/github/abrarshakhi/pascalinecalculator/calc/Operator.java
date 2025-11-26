@@ -1,8 +1,10 @@
 package com.github.abrarshakhi.pascalinecalculator.calc;
 
+import java.util.Stack;
+
 public interface Operator extends Token {
-    public int getPrecedence();
-    public double evaluateAction(double left, double right);
+    int getPrecedence();
+    double evaluateAction(Stack<Double> stack);
 
     static Operator findChild(int op) {
         switch ((char) op) {
@@ -10,9 +12,9 @@ public interface Operator extends Token {
                 return new Addition();
             case '-':
                 return new Subtraction();
-            case '*':
+            case '×':
                 return new Multiplication();
-            case '/':
+            case '÷':
                 return new Division();
             case '^':
                 return new Exponentiation();

@@ -9,12 +9,8 @@ import java.util.Stack;
 public class PostfixExpression implements Expression {
     private final List<Token> postfix;
 
-    private PostfixExpression(List<Token> postfix) {
-        this.postfix = postfix;
-    }
-
-    public static PostfixExpression fromInfix(InfixExpression infix) {
-        return new PostfixExpression(infix.toPostfix());
+    public PostfixExpression(@NonNull InfixExpression infix) {
+        this.postfix = infix.toPostfix();
     }
 
     @Override
@@ -31,19 +27,16 @@ public class PostfixExpression implements Expression {
                 Operator operator = (Operator) token;
 
                 if (operator instanceof Parentheses) {
-                    throw new IllegalStateException("Invalid operator '" + operator.toString() + "'.");
+                    throw new IllegalStateException("Invalid operator '" + operator + "'.");
                 }
 
                 if (results.size() < 2) {
                     throw new IllegalStateException(
-                        "Insufficient operands for operator '" + operator.toString() + "'."
+                        "Insufficient operands for operator '" + operator + "'."
                     );
                 }
 
-                double right = results.pop();
-                double left = results.pop();
-
-                results.push(operator.evaluateAction(left, right));
+                results.push(operator.evaluateAction(results));
 
             } else if (token instanceof Operand) {
                 Operand operand = (Operand) token;

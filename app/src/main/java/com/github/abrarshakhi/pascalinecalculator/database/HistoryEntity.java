@@ -8,10 +8,8 @@ import androidx.room.PrimaryKey;
 public class HistoryEntity {
 
     @PrimaryKey
-    private final long id;
-
+    private long id;
     private String expression;
-
     private String ans;
 
     public HistoryEntity(String expression, String ans) {
@@ -22,6 +20,10 @@ public class HistoryEntity {
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getExpression() {

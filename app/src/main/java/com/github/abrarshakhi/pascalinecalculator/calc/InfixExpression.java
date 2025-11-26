@@ -9,16 +9,8 @@ import java.util.List;
 public class InfixExpression implements Expression {
     private final List<Token> infix;
 
-    private InfixExpression(List<Token> infix) {
-        this.infix = infix;
-    }
-
-    public static InfixExpression create() {
-        return new InfixExpression(new ArrayList<>());
-    }
-
-    public static InfixExpression fromList(List<Token> infix) {
-        return new InfixExpression(infix);
+    public InfixExpression() {
+        infix = new ArrayList<>();
     }
 
     @Override

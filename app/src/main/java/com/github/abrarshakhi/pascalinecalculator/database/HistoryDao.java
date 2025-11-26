@@ -1,6 +1,7 @@
 package com.github.abrarshakhi.pascalinecalculator.database;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -17,5 +18,8 @@ public interface HistoryDao {
 
     @Query("SELECT * FROM history_table ORDER BY id DESC")
     List<HistoryEntity> getAll();
+
+    @Query("DELETE FROM history_table")
+    void clear();
 }
 
