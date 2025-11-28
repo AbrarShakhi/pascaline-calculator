@@ -40,12 +40,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#3E9B54"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="Show history"
                 android:textColor="#1C1D1C"
-                android:clickable="true"
-                android:focusable="true"
                 android:textSize="15sp" />
 
             <TextView
@@ -75,13 +75,457 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- TODO: ADD ALL THE SCIENTIFIC BUTTONS -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text=""
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text=""
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text=""
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text=""
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text=""
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text=""
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text=""
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text=""
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text=""
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text=""
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text=""
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btnSin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="sin(x)"
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/btnCos"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="cos(x)"
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/btnTan"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="tan(x)"
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/btnLn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="ln(x)"
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/btnLog"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="log(b, x)"
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text=""
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btnAsin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="asin(x)"
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/btnACos"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="acos(x)"
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/btnAtan"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="atan(x)"
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/btnSqr"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="x^2"
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/btnPow"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="x^y"
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text=""
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text=""
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text=""
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text=""
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text=""
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/btnOpenBracket"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="("
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/btnCloseBracket"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text=")"
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+
+                </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:baselineAligned="false"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -102,10 +546,10 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:background="#2E2E2E"
-                            android:gravity="center"
-                            android:padding="5dp"
                             android:clickable="true"
                             android:focusable="true"
+                            android:gravity="center"
+                            android:padding="5dp"
                             android:text="7"
                             android:textColor="#DCDDDF"
                             android:textSize="15sp" />
@@ -116,9 +560,9 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:background="#2E2E2E"
-                            android:gravity="center"
                             android:clickable="true"
                             android:focusable="true"
+                            android:gravity="center"
                             android:padding="5dp"
                             android:text="8"
                             android:textColor="#DCDDDF"
@@ -129,9 +573,9 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="#2E2E2E"
                             android:clickable="true"
                             android:focusable="true"
-                            android:background="#2E2E2E"
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="9"
@@ -151,9 +595,9 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="#2E2E2E"
                             android:clickable="true"
                             android:focusable="true"
-                            android:background="#2E2E2E"
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="4"
@@ -165,9 +609,9 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="#2E2E2E"
                             android:clickable="true"
                             android:focusable="true"
-                            android:background="#2E2E2E"
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="5"
@@ -179,9 +623,9 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="#2E2E2E"
                             android:clickable="true"
                             android:focusable="true"
-                            android:background="#2E2E2E"
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="6"
@@ -202,9 +646,9 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:background="#2E2E2E"
-                            android:gravity="center"
                             android:clickable="true"
                             android:focusable="true"
+                            android:gravity="center"
                             android:padding="5dp"
                             android:text="1"
                             android:textColor="#DCDDDF"
@@ -215,9 +659,9 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="#2E2E2E"
                             android:clickable="true"
                             android:focusable="true"
-                            android:background="#2E2E2E"
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="2"
@@ -229,9 +673,9 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="#2E2E2E"
                             android:clickable="true"
                             android:focusable="true"
-                            android:background="#2E2E2E"
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="3"
@@ -251,9 +695,9 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="#2E2E2E"
                             android:clickable="true"
                             android:focusable="true"
-                            android:background="#2E2E2E"
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="0"
@@ -265,9 +709,9 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="#2E2E2E"
                             android:clickable="true"
                             android:focusable="true"
-                            android:background="#2E2E2E"
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="."
@@ -279,9 +723,9 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="#2E2E2E"
                             android:clickable="true"
                             android:focusable="true"
-                            android:background="#2E2E2E"
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="ans"
@@ -309,9 +753,9 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="#2E2E2E"
                             android:clickable="true"
                             android:focusable="true"
-                            android:background="#2E2E2E"
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="÷"
@@ -323,9 +767,9 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="#EE4B2B"
                             android:clickable="true"
                             android:focusable="true"
-                            android:background="#EE4B2B"
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="⌫"
@@ -351,9 +795,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
+                                android:background="#2E2E2E"
                                 android:clickable="true"
                                 android:focusable="true"
-                                android:background="#2E2E2E"
                                 android:gravity="center"
                                 android:padding="5dp"
                                 android:text="×"
@@ -364,10 +808,10 @@
                                 android:id="@+id/btnSub"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:clickable="true"
-                                android:focusable="true"
                                 android:layout_weight="1"
                                 android:background="#2E2E2E"
+                                android:clickable="true"
+                                android:focusable="true"
                                 android:gravity="center"
                                 android:padding="5dp"
                                 android:text="-"
@@ -381,9 +825,9 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:background="#3E9B54"
                             android:clickable="true"
                             android:focusable="true"
-                            android:background="#3E9B54"
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="+"
@@ -398,9 +842,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
+                        android:background="#0096FF"
                         android:clickable="true"
                         android:focusable="true"
-                        android:background="#0096FF"
                         android:gravity="center"
                         android:padding="5dp"
                         android:text="="
