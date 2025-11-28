@@ -82,6 +82,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/btnPi"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -90,11 +91,12 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text=""
+                        android:text="π"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/btnX"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -103,11 +105,12 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text=""
+                        android:text="x"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/btnY"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -116,11 +119,12 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text=""
+                        android:text="y"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/btnA"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -129,11 +133,12 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text=""
+                        android:text="a"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/btnB"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -142,11 +147,12 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text=""
+                        android:text="b"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/btnM"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -155,7 +161,7 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text=""
+                        android:text="M+"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
@@ -168,6 +174,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/btnFact"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -176,10 +183,12 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
+                        android:text="x!"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/btnAbs"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -188,11 +197,12 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text=""
+                        android:text="abs(x)"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/btnXor"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -201,11 +211,12 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text=""
+                        android:text="xor(a,b)"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/btnLn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -214,11 +225,12 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text=""
+                        android:text="ln(x)"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/btnLog"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -227,11 +239,12 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text=""
+                        android:text="log(b, x)"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/btnEx"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -240,7 +253,7 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text=""
+                        android:text="eˣ"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
@@ -296,7 +309,7 @@
                         android:textSize="15sp" />
 
                     <TextView
-                        android:id="@+id/btnLn"
+                        android:id="@+id/btnSqrt"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -305,12 +318,12 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text="ln(x)"
+                        android:text="√(x)"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
                     <TextView
-                        android:id="@+id/btnLog"
+                        android:id="@+id/btnRoot"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -319,11 +332,12 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text="log(b, x)"
+                        android:text="root(b,x)"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/btn10Exp"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -332,7 +346,7 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text=""
+                        android:text="10ˣ"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
@@ -355,7 +369,7 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text="asin(x)"
+                        android:text="sin⁻¹(x)"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
@@ -369,7 +383,7 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text="acos(x)"
+                        android:text="cos⁻¹(x)"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
@@ -383,7 +397,7 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text="atan(x)"
+                        android:text="tan⁻¹(x)"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
@@ -397,7 +411,21 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text="x^2"
+                        android:text="x²"
+                        android:textColor="#DCDDDF"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/btnCub"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#2E2E2E"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="x³"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
@@ -411,20 +439,7 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text="x^y"
-                        android:textColor="#DCDDDF"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="#2E2E2E"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:gravity="center"
-                        android:padding="5dp"
-                        android:text=""
+                        android:text="xʸ"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
@@ -438,6 +453,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/btnSinh"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -446,11 +462,12 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text=""
+                        android:text="sinh(x)"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/btnCosh"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -459,11 +476,12 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text=""
+                        android:text="cosh(x)"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/btnTanh"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -472,11 +490,12 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text=""
+                        android:text="tanh(x)"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/btnPercentage"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -485,7 +504,7 @@
                         android:focusable="true"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text=""
+                        android:text="%"
                         android:textColor="#DCDDDF"
                         android:textSize="15sp" />
 
