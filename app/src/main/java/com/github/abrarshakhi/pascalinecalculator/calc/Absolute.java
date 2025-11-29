@@ -5,24 +5,22 @@ import androidx.annotation.NonNull;
 import java.util.List;
 import java.util.Stack;
 
-public class Addition implements Operator {
+public class Absolute implements Operator {
 
     @Override
     public double evaluateAction(@NonNull Stack<Double> stack) {
-        double right = stack.pop();
-        double left = stack.pop();
-        return left + right;
+        return Math.abs(stack.pop());
     }
 
     @NonNull
     @Override
     public String toString() {
-        return "+";
+        return "abs";
     }
 
     @Override
     public int getPrecedence() {
-        return 1;
+        return 4;
     }
 
     @Override
