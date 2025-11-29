@@ -14,11 +14,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.github.abrarshakhi.pascalinecalculator.calc.ExpressionManager;
 import com.github.abrarshakhi.pascalinecalculator.data.QuickStore;
 import com.github.abrarshakhi.pascalinecalculator.database.HistoryDao;
 import com.github.abrarshakhi.pascalinecalculator.database.HistoryDatabase;
 import com.github.abrarshakhi.pascalinecalculator.database.HistoryEntity;
+
+import org.mariuszgromada.math.mxparser.Argument;
+import org.mariuszgromada.math.mxparser.Expression;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
     private HistoryAdapter historyAdapter;
     private View.OnClickListener[] clearButtonListener;
     private HistoryDao dao;
-    private ExpressionManager expressionManager;
     private QuickStore qs;
     private boolean isEnableSaveBtn;
 
@@ -72,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
 
         qs = QuickStore.firstInstance(this);
         dao = HistoryDatabase.getInstance(this).historyDao();
-        expressionManager = new ExpressionManager();
 
         clearButtonListener = new View.OnClickListener[2];
         clearButtonListener[CLEAR_DISPLAY] = v -> clearDisplay();
@@ -135,30 +135,38 @@ public class MainActivity extends AppCompatActivity {
     private void initBasicArithmetic() {
         findViewById(R.id.btnAdd).setOnClickListener(v -> insertTextAtCursor("+"));
         findViewById(R.id.btnSub).setOnClickListener(v -> insertTextAtCursor("-"));
-        findViewById(R.id.btnMul).setOnClickListener(v -> insertTextAtCursor("×"));
-        findViewById(R.id.btnDiv).setOnClickListener(v -> insertTextAtCursor("÷"));
+        findViewById(R.id.btnMul).setOnClickListener(v -> insertTextAtCursor("*"));
+        findViewById(R.id.btnDiv).setOnClickListener(v -> insertTextAtCursor("/"));
         findViewById(R.id.btnAns).setOnClickListener(v -> insertTextAtCursor("ans"));
         findViewById(R.id.btnEq).setOnClickListener(v -> {
-            loadVariables();
-            CharSequence result = "!!";
-            String expr = display.getText().toString();
-            try {
-                expressionManager.clear();
-                expressionManager.parseInfix(expr);
-                double ans = expressionManager.calculate();
-                variables.put(ANS, ans);
-                result = String.valueOf(ans);
-                qs.saveDisplayText(result.toString());
-            } catch (Exception ignored) {
-            }
-            String finalAns = result.toString();
-            new Thread(() -> {
-                dao.insert(new HistoryEntity(expr, finalAns));
-                loadHistory();
-                runOnUiThread(() -> historyAdapter.notifyDataSetChanged());
-            }).start();
-            display.setText(result);
             saveVariables();
+            loadVariables();
+            Argument x = new Argument("x = " + variables.get(X));
+            Argument y = new Argument("y = " + variables.get(Y));
+            Argument a = new Argument("a = " + variables.get(A));
+            Argument b = new Argument("b = " + variables.get(B));
+            Argument lastAns = new Argument("ans = " + variables.get(ANS));
+
+            String expr = display.getText().toString();
+            Expression e = new Expression(expr, x, y, a, b, lastAns);
+            double ans = e.calculate();
+            if (Double.isNaN(ans)) {
+                display.setText("!!");
+            } else {
+                String result = String.valueOf(ans);
+                variables.put(ANS, ans);
+                qs.saveDisplayText(result);
+                new Thread(() -> {
+                    dao.insert(new HistoryEntity(expr, result));
+                    loadHistory();
+                    runOnUiThread(() -> historyAdapter.notifyDataSetChanged());
+                }).start();
+                display.setText(result);
+            }
+            int len = display.getText().length();
+            if (len > 0) display.setSelection(len);
+            saveVariables();
+            loadVariables();
         });
         findViewById(R.id.btnBack).setOnClickListener(v -> {
             String text = display.getText().toString().strip();
@@ -216,24 +224,24 @@ public class MainActivity extends AppCompatActivity {
             }
             isEnableSaveBtn = !isEnableSaveBtn;
         });
-        findViewById(R.id.btnPi).setOnClickListener(v -> insertTextAtCursor("π"));
-        findViewById(R.id.btnPercentage).setOnClickListener(v -> insertTextAtCursor(")%"));
+        findViewById(R.id.btnPi).setOnClickListener(v -> insertTextAtCursor("pi"));
+        findViewById(R.id.btnPercentage).setOnClickListener(v -> insertTextAtCursor("/100"));
         findViewById(R.id.btnPow).setOnClickListener(v -> insertTextAtCursor("^"));
-        findViewById(R.id.btnEx).setOnClickListener(v -> insertTextAtCursor("×e^"));
-        findViewById(R.id.btn10Exp).setOnClickListener(v -> insertTextAtCursor("×10^"));
-        findViewById(R.id.btnFact).setOnClickListener(v -> insertTextAtCursor(")!"));
+        findViewById(R.id.btnEx).setOnClickListener(v -> insertTextAtCursor("e^("));
+        findViewById(R.id.btn10Exp).setOnClickListener(v -> insertTextAtCursor("*10^"));
+        findViewById(R.id.btnFact).setOnClickListener(v -> insertTextAtCursor("!"));
         findViewById(R.id.btnAbs).setOnClickListener(v -> insertTextAtCursor("abs("));
-        findViewById(R.id.btnXor).setOnClickListener(v -> insertTextAtCursor("xor("));
+        findViewById(R.id.btnComma).setOnClickListener(v -> insertTextAtCursor(","));
         findViewById(R.id.btnLn).setOnClickListener(v -> insertTextAtCursor("ln("));
         findViewById(R.id.btnLog).setOnClickListener(v -> insertTextAtCursor("log("));
         findViewById(R.id.btnSin).setOnClickListener(v -> insertTextAtCursor("sin("));
         findViewById(R.id.btnCos).setOnClickListener(v -> insertTextAtCursor("cos("));
         findViewById(R.id.btnTan).setOnClickListener(v -> insertTextAtCursor("tan("));
-        findViewById(R.id.btnSqrt).setOnClickListener(v -> insertTextAtCursor("√("));
+        findViewById(R.id.btnSqrt).setOnClickListener(v -> insertTextAtCursor("sqrt("));
         findViewById(R.id.btnRoot).setOnClickListener(v -> insertTextAtCursor("root("));
-        findViewById(R.id.btnAsin).setOnClickListener(v -> insertTextAtCursor("sin⁻¹("));
-        findViewById(R.id.btnACos).setOnClickListener(v -> insertTextAtCursor("cos⁻¹("));
-        findViewById(R.id.btnAtan).setOnClickListener(v -> insertTextAtCursor("tan⁻¹("));
+        findViewById(R.id.btnAsin).setOnClickListener(v -> insertTextAtCursor("asin("));
+        findViewById(R.id.btnACos).setOnClickListener(v -> insertTextAtCursor("acos("));
+        findViewById(R.id.btnAtan).setOnClickListener(v -> insertTextAtCursor("atan("));
         findViewById(R.id.btnSqr).setOnClickListener(v -> insertTextAtCursor("^2"));
         findViewById(R.id.btnCub).setOnClickListener(v -> insertTextAtCursor("^3"));
         findViewById(R.id.btnSinh).setOnClickListener(v -> insertTextAtCursor("sinh("));
