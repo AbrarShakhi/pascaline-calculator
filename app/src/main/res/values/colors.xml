@@ -39,6 +39,8 @@
     <!-- Additional colors -->
     <color name="error_dark">#CF6679</color> <!-- Light Red error color -->
     <color name="on_error_dark">#000000</color>
+    <color name="_2e2e2e">#2E2E2E</color>
+    <color name="_0096ff">#0096FF</color>
 
 
 </resources>
