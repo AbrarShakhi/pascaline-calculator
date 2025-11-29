@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 
 import com.github.abrarshakhi.pascalinecalculator.database.HistoryEntity;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Date;
 import java.util.List;
 
@@ -19,12 +21,13 @@ public class HistoryAdapter extends ArrayAdapter<HistoryEntity> {
     Context context;
     List<HistoryEntity> list;
     LayoutInflater inflater;
+    OnItemClick onItemClick;
 
-    public HistoryAdapter(Context context, List<HistoryEntity> arrayList) {
+    public HistoryAdapter(@NotNull Context context, @NotNull List<HistoryEntity> arrayList, @NotNull OnItemClick onItemClick) {
         super(context, R.layout.row_history, arrayList);
         this.context = context;
         this.list = arrayList;
-
+        this.onItemClick = onItemClick;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -44,7 +47,11 @@ public class HistoryAdapter extends ArrayAdapter<HistoryEntity> {
 
         ts.setText(formattedDate);
         eq.setText(hist.getExpression() + " = " + hist.getAns());
-
+        eq.setOnClickListener(v -> onItemClick.listener(hist));
         return rowView;
+    }
+
+    public interface OnItemClick {
+        void listener(HistoryEntity hist);
     }
 }

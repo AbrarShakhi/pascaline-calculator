@@ -68,14 +68,24 @@ public class MainActivity extends AppCompatActivity {
         isEnableSaveBtn = false;
 
         historyEntityList = new ArrayList<>();
-        historyAdapter = new HistoryAdapter(this, historyEntityList);
-        history.setAdapter(historyAdapter);
 
         qs = QuickStore.firstInstance(this);
         dao = HistoryDatabase.getInstance(this).historyDao();
 
+        historyAdapter = new HistoryAdapter(this, historyEntityList, hist -> {
+            display.setText(hist.getExpression());
+            display.setSelection(Math.max(0, display.getText().length() - 1));
+        });
+        history.setAdapter(historyAdapter);
         clearButtonListener = new View.OnClickListener[2];
-        clearButtonListener[CLEAR_DISPLAY] = v -> clearDisplay();
+        clearButtonListener[CLEAR_DISPLAY] = v -> {
+            if (display.getText().toString().strip().equals("!!")) {
+                display.setText("");
+                insertTextAtCursor(qs.loadDisplayText());
+            } else {
+                clearDisplay();
+            }
+        };
         clearButtonListener[CLEAR_HISTORY] = v -> new Thread(() -> {
             dao.clear();
             historyEntityList.clear();
@@ -154,15 +164,15 @@ public class MainActivity extends AppCompatActivity {
                 display.setText("!!");
             } else {
                 String result = String.valueOf(ans);
-                variables.put(ANS, ans);
-                qs.saveDisplayText(result);
                 new Thread(() -> {
                     dao.insert(new HistoryEntity(expr, result));
                     loadHistory();
                     runOnUiThread(() -> historyAdapter.notifyDataSetChanged());
                 }).start();
+                variables.put(ANS, ans);
                 display.setText(result);
             }
+            qs.saveDisplayText(expr);
             int len = display.getText().length();
             if (len > 0) display.setSelection(len);
             saveVariables();
@@ -227,8 +237,8 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btnPi).setOnClickListener(v -> insertTextAtCursor("pi"));
         findViewById(R.id.btnPercentage).setOnClickListener(v -> insertTextAtCursor("/100"));
         findViewById(R.id.btnPow).setOnClickListener(v -> insertTextAtCursor("^"));
-        findViewById(R.id.btnEx).setOnClickListener(v -> insertTextAtCursor("e^("));
-        findViewById(R.id.btn10Exp).setOnClickListener(v -> insertTextAtCursor("*10^"));
+        findViewById(R.id.btnEx).setOnClickListener(v -> insertTextAtCursor("e^"));
+        findViewById(R.id.btn10Exp).setOnClickListener(v -> insertTextAtCursor("E"));
         findViewById(R.id.btnFact).setOnClickListener(v -> insertTextAtCursor("!"));
         findViewById(R.id.btnAbs).setOnClickListener(v -> insertTextAtCursor("abs("));
         findViewById(R.id.btnComma).setOnClickListener(v -> insertTextAtCursor(","));
