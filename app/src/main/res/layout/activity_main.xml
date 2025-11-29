@@ -312,7 +312,7 @@
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <TextView
-                        android:id="@+id/btnXor"
+                        android:id="@+id/btnComma"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
@@ -323,7 +323,7 @@
                         android:foreground="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text="xor(a,b)"
+                        android:text=","
                         android:textColor="#DCDDDF"
                         android:textSize="13sp"
                         tools:ignore="TouchTargetSizeCheck" />

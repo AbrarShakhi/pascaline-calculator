@@ -45,4 +45,6 @@ dependencies {
     val roomVersion = "2.8.4"
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
+
+    implementation("org.mariuszgromada.math:MathParser.org-mXparser:6.1.0")
 }
