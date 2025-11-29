@@ -1,6 +1,3 @@
 package com.github.abrarshakhi.pascalinecalculator.calc;
 
-public enum ParenthesesKind {
-    OPEN,
-    CLOSE,
-}
+public interface FunctionOperator extends Operator {}

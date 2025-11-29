@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import java.util.List;
 import java.util.Stack;
 
-public class Absolute implements Operator {
+public class Absolute implements Operator, FunctionOperator {
 
     @Override
     public double evaluateAction(@NonNull Stack<Double> stack) {
@@ -25,9 +25,6 @@ public class Absolute implements Operator {
 
     @Override
     public void mutateToPostfix(Token token, List<Token> postfix, @NonNull List<Operator> operatorStack) {
-        while (!operatorStack.isEmpty() && operatorStack.get(operatorStack.size() - 1).getPrecedence() >= getPrecedence()) {
-            postfix.add(operatorStack.remove(operatorStack.size() - 1));
-        }
         operatorStack.add((Operator) token);
     }
 }

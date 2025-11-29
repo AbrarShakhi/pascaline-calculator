@@ -14,11 +14,6 @@ public class InfixExpression implements Expression {
     }
 
     @Override
-    public ExpressionKind getKind() {
-        return ExpressionKind.INFIX;
-    }
-
-    @Override
     public double evaluate() {
         throw new UnsupportedOperationException("Cannot evaluate infix expression directly.");
     }
@@ -48,11 +43,6 @@ public class InfixExpression implements Expression {
         return !infix.isEmpty();
     }
 
-    @Override
-    public int length() {
-        return infix.size();
-    }
-
     @NonNull
     @Override
     public String toString() {
@@ -66,11 +56,6 @@ public class InfixExpression implements Expression {
     @Override
     public List<Token> getItems() {
         return Collections.unmodifiableList(infix);
-    }
-
-    @Override
-    public Token getLast() {
-        return infix.get(infix.size() - 1);
     }
 
     public List<Token> toPostfix() {

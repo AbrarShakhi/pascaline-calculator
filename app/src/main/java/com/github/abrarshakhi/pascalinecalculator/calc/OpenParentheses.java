@@ -24,11 +24,6 @@ public class OpenParentheses implements Operator, Parentheses {
     }
 
     @Override
-    public ParenthesesKind getKind() {
-        return ParenthesesKind.OPEN;
-    }
-
-    @Override
     public void mutateToPostfix(
         Token token,
         List<Token> postfix,

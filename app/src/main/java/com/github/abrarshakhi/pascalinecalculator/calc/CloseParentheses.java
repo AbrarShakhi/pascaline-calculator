@@ -24,25 +24,21 @@ public class CloseParentheses implements Operator, Parentheses {
     }
 
     @Override
-    public ParenthesesKind getKind() {
-        return ParenthesesKind.CLOSE;
-    }
+    public void mutateToPostfix(Token token, List<Token> postfix, List<Operator> operatorStack) {
 
-    @Override
-    public void mutateToPostfix(
-        Token token,
-        List<Token> postfix,
-        List<Operator> operatorStack
-    ) {
-        // Pop operators until an OpenParentheses is found
+        // Pop operators until '('
         while (!operatorStack.isEmpty() && !(operatorStack.get(operatorStack.size() - 1) instanceof OpenParentheses)) {
             postfix.add(operatorStack.remove(operatorStack.size() - 1));
         }
 
-        // Remove the matching open parenthesis
+        // Pop '('
         if (!operatorStack.isEmpty() && operatorStack.get(operatorStack.size() - 1) instanceof OpenParentheses) {
             operatorStack.remove(operatorStack.size() - 1);
         }
+
+        // Final step: if a function is on top, pop it
+        if (!operatorStack.isEmpty() && operatorStack.get(operatorStack.size() - 1) instanceof FunctionOperator) {
+            postfix.add(operatorStack.remove(operatorStack.size() - 1));
+        }
     }
 }
-

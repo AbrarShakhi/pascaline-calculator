@@ -217,11 +217,11 @@ public class MainActivity extends AppCompatActivity {
             isEnableSaveBtn = !isEnableSaveBtn;
         });
         findViewById(R.id.btnPi).setOnClickListener(v -> insertTextAtCursor("π"));
-        findViewById(R.id.btnPercentage).setOnClickListener(v -> insertTextAtCursor("%"));
+        findViewById(R.id.btnPercentage).setOnClickListener(v -> insertTextAtCursor(")%"));
         findViewById(R.id.btnPow).setOnClickListener(v -> insertTextAtCursor("^"));
         findViewById(R.id.btnEx).setOnClickListener(v -> insertTextAtCursor("×e^"));
         findViewById(R.id.btn10Exp).setOnClickListener(v -> insertTextAtCursor("×10^"));
-        findViewById(R.id.btnFact).setOnClickListener(v -> insertTextAtCursor("!"));
+        findViewById(R.id.btnFact).setOnClickListener(v -> insertTextAtCursor(")!"));
         findViewById(R.id.btnAbs).setOnClickListener(v -> insertTextAtCursor("abs("));
         findViewById(R.id.btnXor).setOnClickListener(v -> insertTextAtCursor("xor("));
         findViewById(R.id.btnLn).setOnClickListener(v -> insertTextAtCursor("ln("));

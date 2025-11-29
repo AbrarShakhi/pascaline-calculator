@@ -14,11 +14,6 @@ public class PostfixExpression implements Expression {
     }
 
     @Override
-    public ExpressionKind getKind() {
-        return ExpressionKind.POSTFIX;
-    }
-
-    @Override
     public double evaluate() {
         Stack<Double> results = new Stack<>();
 
@@ -83,11 +78,6 @@ public class PostfixExpression implements Expression {
         return !postfix.isEmpty();
     }
 
-    @Override
-    public int length() {
-        return postfix.size();
-    }
-
     @NonNull
     @Override
     public String toString() {
@@ -103,8 +93,4 @@ public class PostfixExpression implements Expression {
         return Collections.unmodifiableList(postfix);
     }
 
-    @Override
-    public Token getLast() {
-        return postfix.get(postfix.size() - 1);
-    }
 }

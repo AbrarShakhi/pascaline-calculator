@@ -63,7 +63,7 @@ public class ExpressionManager {
                 operator = Operator.findChild(ch);
             } catch (IllegalArgumentException ignored) {
                 // Not an operator, treat as part of a number
-                operandBuffer.add((int) ch);
+                operandBuffer.add(Character.getNumericValue(ch));
             }
 
             if (operator != null) {
